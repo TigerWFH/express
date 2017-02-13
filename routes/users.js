@@ -13,8 +13,8 @@ router.get('/', function (req, res, next) {
       if (err) {
         throw err;
       }
-      console.log(JSON.stringify(result));
-      console.log(result);
+      console.log("toArray--->", result);//json对象（也是js对象）
+      console.log("stringify--->", JSON.stringify(result));//json字符串
       res.json(result);
       db.close();
     })
