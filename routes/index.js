@@ -1,10 +1,10 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
-var data = require('../datas/users');
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    data.init();
-    res.sendfile('./views/index.html');
-});
 
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    // res.json({ "name": "return json" });
+    res.sendfile('./views/index.html')
+});
 module.exports = router;
