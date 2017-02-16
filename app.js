@@ -1,3 +1,17 @@
+// 程序的逻辑层次
+/*      ------------------
+        |    UI layer    |----->UI process:复杂的系统可衍生出来该层，用于和Business通信
+        ------------------
+        |  Business过程  |----->service：复杂的系统可衍生出来该层，用来封装Business对象
+        ------------------
+        |  Business对象  |----->DAO：复杂的系统可衍生出来该层，用来封装对数据库的操作；简单的直接在Business对象中处理了
+        ------------------
+        |    基础设施    |
+        ------------------
+        Business对象：抽象业务模型，实现业务流程
+        Business过程：组合Business对象，实现业务流程的自动化，其输入输出都是Business对象
+        model包含：business过程和business对象在内
+*/
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
