@@ -1,7 +1,6 @@
 let express = require('express');
 let router = express.Router();
 let User = require('../models/users');
-let users = new User();
 
 // 注册新用户
 router.post('/', (req, res, next) => {
