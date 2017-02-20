@@ -2,7 +2,48 @@ var express = require('express');
 var router = express.Router();
 let wechat = require('wechat');
 var config = require('../config.js');
+var fs = require('fs');
 
+// get access_token
+const getAccessToken = () => {
+    let queryParams = {
+        'grant_type': 'client_credential',
+        'appid': config.appid,
+        'secret': config.secret
+    };
+    let wxGetAccessTokenBaseUrl = 'https://api.weixin.qq.com/cgi-bin/token?'
+        + JSON.stringify(queryParams);
+    let options = {
+        method: 'GET',
+        url: wxGetAccessTokenBaseUrl
+    };
+    return new Promise((resolve, reject) => {
+        request(options, (err, res, body) => {
+            if (res) {
+                resolve(JSON.parse(body));
+            }
+            else {
+                reject(err);
+            }
+        });
+    })
+};
+// save access_token
+const saveToken = () => {
+    getAccessToken().then(res => {
+        let token = res['access_token'];
+        fs.writeFile('./token', token, (err) => {
+
+        })
+    });
+}
+// update token
+const refreshToken = () => {
+    saveToken();
+    setInterval(() => {
+        saveToken();
+    }, 7000 * 1000)
+}
 router.use('/', wechat(config, function (req, res, next) {
     // 微信输入信息都在req.weixin上
     var message = req.weixin;
