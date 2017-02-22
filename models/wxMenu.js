@@ -19,8 +19,13 @@ module.exports = class WxMenu {
                 },
                 {
                     "name": "TestButton2",
-                    "type": "view",
-                    "url": "http://104.194.91.80"
+                    "sub_button": [
+                        {
+                            "type": "view",
+                            "name": "中文页面",
+                            "url": "http://104.194.91.80"
+                        }
+                    ],
                 },
                 {
                     "name": "联系我",
