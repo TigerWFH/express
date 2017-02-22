@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
     res.end(wxAuthentication.checkSignature(req.query));
 });
 router.post('/', (req, res, next) => {
-    console.log("message--->", req.body);
+    console.log("message--->", req);
 });
 // 获取token
 
