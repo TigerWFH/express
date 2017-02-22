@@ -34,6 +34,81 @@ module.exports = class WxMenu {
                 }
             ]
         };
+        let allMenus = {
+            "button": [
+                {
+                    "name": "monkey",
+                    "sub_button": [
+                        {
+                            "name": "扫码带提示",
+                            "type": "scancode_waitmsg",
+                            "key": "rselfmenu_0_0",
+                            "sub_button": []
+                        },
+                        {
+                            "name": "扫码推事件",
+                            "type": "scancode_push",
+                            "key": "rselfmenu_0_1",
+                            "sub_button": []
+                        },
+                        {
+                            "name": "点击",
+                            "type": "click",
+                            "key": "rselfmenu_0_2",
+                            "sub_button": []
+                        }
+                    ]
+                },
+                {
+                    "name": "lion",
+                    "sub_button": [
+                        {
+                            "name": "系统拍照发图",
+                            "type": "pic_sysphoto",
+                            "key": "rselfmenu_1_0",
+                            "sub_button": []
+                        },
+                        {
+                            "name": "拍照或者相册发图",
+                            "type": "pic_photo_or_album",
+                            "key": "rselfmenu_1_1",
+                            "sub_button": []
+                        },
+                        {
+                            "name": "微信相册发图",
+                            "type": "pic_weixin",
+                            "key": "rselfmenu_1_2",
+                            "sub_button": []
+                        }
+                    ]
+                },
+                {
+                    "name": "tiger",
+                    "sub_button": [
+                        {
+                            "name": "发送位置",
+                            "type": "location_select",
+                            "key": "rselfmenu_2_0"
+                        },
+                        // {
+                        //     "name": "图片",
+                        //     "type": "media_id",
+                        //     "media_id": "MEDIA_ID1"
+                        // },
+                        // {
+                        //     "name": "图文消息",
+                        //     "type": "view_limited",
+                        //     "media_id": "MEDIA_ID2"
+                        // },
+                        {
+                            "name": "页面跳转",
+                            "type": "view",
+                            "url": "http://104.194.91.80"
+                        },
+                    ]
+                }
+            ]
+        }
         let access_token = fs.readFileSync(path.join(__dirname, '\\token.json'), 'utf8');
         if (!access_token) {
             console.log('can not get access_token!');
@@ -42,7 +117,7 @@ module.exports = class WxMenu {
         let token = JSON.parse(access_token).access_token;
         let options = {
             url: "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + token,
-            form: JSON.stringify(menus),
+            form: JSON.stringify(allMenus),
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
