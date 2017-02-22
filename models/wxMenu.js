@@ -20,13 +20,11 @@ module.exports = class WxMenu {
                 {
                     "name": "TestButton2",
                     "type": "view",
-                    "name": "authentication",
                     "url": "http://104.194.91.80"
                 },
                 {
                     "name": "联系我",
                     "type": "view",
-                    "name": "authentication",
                     "url": "http://104.194.91.80"
                 }
             ]
