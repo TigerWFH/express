@@ -17,6 +17,9 @@ router.get('/', (req, res, next) => {
     let wxAuthentication = new WxAuthentication();
     res.end(wxAuthentication.checkSignature(req.query));
 });
+router.post('/', (req, res, next) => {
+    console.log("message--->", req.body);
+});
 // 获取token
 
 module.exports = router;
