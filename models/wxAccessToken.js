@@ -3,7 +3,7 @@ let fs = require('fs');
 let path = require('path');
 const config = require('../config');
 
-module.exports = class DomainBusiness {
+module.exports = class WxAccessToken {
     constructor() { }
     // 可手动获取token
     getAccessToken() {
@@ -56,14 +56,11 @@ module.exports = class DomainBusiness {
     }
     // 自动刷新token
     refreshToken() {
-        this.saveToken().then(result => {
-            let token = fs.readFileSync(path.join(__dirname, '\\token.json'), 'utf8');
-            if (token) {
-                setInterval(() => {
-                    saveToken();
-                }, (JSON.parse(token).expires_in - 5) * 1000)
-            }
-        }, error => {
-        });
+        let token = fs.readFileSync(path.join(__dirname, '\\token.json'), 'utf8');
+        if (token) {
+            setInterval(() => {
+                saveToken();
+            }, (JSON.parse(token).expires_in - 5) * 1000)
+        }
     };
 };

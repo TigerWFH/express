@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const config = require('../config');
 
-module.exports = class WeChat {
+module.exports = class WxAuthentication {
     constructor() {
 
     }

@@ -30,7 +30,6 @@ module.exports = class WxMenu {
             console.log('can not get access_token!');
             return;
         }
-        console.log('*************--->', access_token);
         let token = JSON.parse(access_token).access_token;
         let options = {
             url: "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + token,
