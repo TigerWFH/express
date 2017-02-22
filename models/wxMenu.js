@@ -22,6 +22,12 @@ module.exports = class WxMenu {
                     "type": "view",
                     "name": "authentication",
                     "url": "http://104.194.91.80"
+                },
+                {
+                    "name": "联系我",
+                    "type": "view",
+                    "name": "authentication",
+                    "url": "http://104.194.91.80"
                 }
             ]
         };
